@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.henrique.ediimusic.R;
+import com.henrique.ediimusic.model.MusicList;
 
 import java.util.List;
 
@@ -34,6 +35,12 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull MusicAdapter.MyViewHolder holder, int position) {
         MusicList list2 = list.get(position);
 
+        if(list2.isPlaying()){
+            holder.rootLayout.setBackgroundResource(R.drawable.round_banck_blue_10);
+        }else{
+            holder.rootLayout.setBackgroundResource(R.drawable.round_back_10);
+        }
+
     }
 
     @Override
@@ -55,7 +62,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
             title = itemView.findViewById(R.id.musicTitle);
             arList = itemView.findViewById(R.id.musicArList);
 
-            
+
 
         }
     }
